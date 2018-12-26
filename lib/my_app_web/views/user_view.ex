@@ -15,13 +15,22 @@ defmodule MyAppWeb.UserView do
       email: user.email,
       is_active: user.is_active}
   end
-
   def render("sign_in.json", %{user: user}) do
     %{
       data: %{
         user: %{
-          id: user.id,
-          email: user.email
+          message: "Login completed! Welcome!",
+          email: user.email,
+          id: user.id
+        }
+      }
+    }
+  end
+  def render("logout.json", _params) do
+    %{
+      data: %{
+        user: %{
+          message: "Logout completed! See you!"
         }
       }
     }

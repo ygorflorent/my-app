@@ -17,7 +17,9 @@ defmodule MyAppWeb.Router do
 
   scope "/api", MyAppWeb do
     pipe_through [:api, :api_auth]
-    post "/users", UserController, :create
+    post "/users/registrations", UserController, :create
+    get "/logout", UserController, :logout
+    put "/users/update", UserController, :update
     resources "/users", UserController, except: [:new, :edit]
   end
 
